@@ -1,0 +1,194 @@
+							Curs4- Supraincarcarea operatorilor C++
+
+Foarte important intra la sumativ si examen practic
+
+
+2.operator = membra
+3. operatori +=, -=, *=, /=, %= membra
+1. operator +, -, *, /, %  membra/friend
+0. operator - schimbare semne membra
+4.++ preincrmentare, ++postincremetare membra
+5. operatorul ==, !=, <=, >=, <, >   membra/friend
+6.operatorul >>, << (inserot, extractor)  membra/friend
+7. operator[] indexare vecor, metrice  membra
+				pt sumativ
+8 conversie(Clasa)
+9.*, -> (nu se cere)
+10. fundor-> apel de functie
+
+2. operator atribuiere operator=
+
+class Fractie{
+ private:
+  int numarator, numitor;
+ publica:
+  Fractie(int numa=0, int numi=1);
+  Fractie(const Functie& other);
+  ~Fractie();
+  Fractie& operator=(const Functie& other);
+};
+
+.cpp
+Fractie::Fractie(int a, int b):numarator(a), numitor(b0{}
+Fractie::~Fractie(){ }
+
+Fractie& Fractie::operatorul=(const Functie& other){
+this->numarator = other.numarator;
+this->numitor = other.numitor;
+return *this;
+}
+
+
+3. operator aritmetici compusi (+=, -=, *=, /=, %=)
+
+T& operatorul +=(const T&)
+
+
+.cpp
+Fractie& Fractie::operatorul+=(const Functie& other){
+this->numarator= other.numitor * this->numarator
+....
+}
+
+
+1.operator artiburie (+, -, *, /, %)
+1.1 memebra
+T operator+ (const T& other);
+
+
+Frecatie Freactie:: operator+(const Fractie& other)
+{
+Freactie rezultat;
+
+....
+
+
+
+return rezultat;
+}
+
+In implementare se va pune o varianta necomentata si acelalta comentata
+
+1.2 friend(nu are acces la tgis => 2 parmetri)
+
+firent T operaor+(const T& o1, const T& o2)
+
+.h
+
+firend Fractie operator+(const Functie& v1, const Functie& v2);
+
+.cpp
+Fractie operator+(const Functie& v1, const Functie& v2){
+	// exact la fel ca 1.1
+}
+
+
+0. operator - schimbare de semn membra
+Fractieoperator-(;
+Fractie& Fractie operatr * = -1;
+retunr *this
+}
+
+
+4.++, --
+T& operator++(); /pre
+T operator++(int); /post
+
+T& operator--();
+T operator--(int);
+
+
+.cpp
+
+Fractie& Fractie:: operator++(){ /pre
+
+adunare ...
+retunr *this;
+}
+
+
+Fractie Fractie:: operator++(int demmy){ /post
+Fractie oldvalue = *this; // valoaea anteroara a incremerari
+adunare this....
+
+retunr oldvalue;
+}
+
+
+5. operator de comparatie
+
+
+bool operator==(const T& other)
+
+friend bool operator==(const T& o1, const T& o2)
+
+
+6.citire, afisare 
+
+
+ostream& operator<<(ostream &) const;/membru
+ostream& operator<<(ostream &, const T&);/friend
+
+
+
+ostream& Freactie::operator<<(ostream & os) const{
+os << this->numarator <<"/"<< this->numitor;
+retunr os;
+}
+
+
+ostream& operator<<(ostream &os, const Fractie& fr){
+os << fr.numarator <<"/"<< fr.numitor;
+return os;
+}
+
+Functile friend nu au aces la this
+
+
+
+
+
+istream& operator >>(istrem& is);
+istream& operator >>(istrem& is, Fractie& f);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

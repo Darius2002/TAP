@@ -1,0 +1,121 @@
+		Membri statici, inline, const, friend
+static- membru(camp, metoda) de clasa
+class A{
+ private:
+  int i;
+  static int j;
+ public:
+  int get I();
+  static int get J();
+};
+Metoda care lucreaza cu campuri satice trebuie sa fie statica
+.cpp
+int A:: j = 1000; 
+int A::getJ(){retunr j;}
+
+int main()
+{
+
+ cout << A::getJ();
+}
+
+Explicatii contor instante
+
+
+
+
+
+functii inline: se implementeaza doar in .h
+
+
+class PErsoana{
+	inline void setVasta(unsignet v)
+	{
+	 this->varsta = v;
+	{
+};
+
+Obs. inline permite implementare metodelor direct in fisierul .h si nu se mia pune implmentarea in .cpp
+Se aplica la functii simple getter/setter
+
+functii const: cuvantul cheie const se trece atat in fisieru .h cat si in .cpp dupa paratenza rotunda inchisa, adica dupa parametri functiei, in cazul fiserului .cpp inide de {
+
+O functie poate fi const, daca nu schimba this-ul, stare obiectului curent
+Ex. getter, afisare
+
+
+class Pers{
+	unsigent getvarsta() const;
+	inline unsigent getvarsta() const{retunr this->varsta;}
+};
+
+unsigned Persoana:: getVarsta()const
+{ return this->varsta;}
+
+
+metode friend/clase friend: o metoda/clasa prietena nu face parte din clasa, dar are acces la membri(campuri si metode private ale clasei). Se trece doar in .h
+
+class A{
+
+ private:
+  int numare;
+ public:
+  A(int numar = 3);
+  A(const A& ther); 
+  ~A();
+  A& operator=(const A&);
+  frend void metodaPrivilegiata();
+};
+.cpp
+void metodaPrivilegiata(){const << numar;}
+
+class A{
+private:
+ int x;
+
+public:
+ friend class B;
+};
+B este clasa prienta a lui a, are acces la x-ul privat a lui A!
+class B{
+private:
+ char b;
+
+public:
+ friend class A;
+};
+Astfel A este clasa pretena a lui B are acces la b privat
+
+class LSI{
+private:
+ nod* ROOT
+public:
+ LSI();
+~LSI();
+LSI(const LSI& other);
+LSI& operator=(...);
+};
+
+class Nod{
+private 
+ int info
+ Nod* succ
+firend class LSI;
+};
+
+Obs. Modifcatorul de acces nu are efect asupra metodelor sau claselor friend
+
+
+Declarate in .h !!!!
+
+class Nod; 
+class LSI{
+...
+};
+class Nod{
+...
+};
+
+
+
+

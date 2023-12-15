@@ -1,0 +1,95 @@
+				Clase in c++
+
+
+c++: clasa: 1.declararea clasei .h
+	    2.definirea/implmentarea claei .cpp
+
+
+1.Declararea clasei
+Forma generala
+class numeClasa
+{ modifcatori de aces: tip field1;
+		       tip filde2;
+		       tip filde3;
+		       tip metoda1(tip p1, tip p2);
+//modificatori de aces = private, public, protected
+
+};
+fisierul .h
+#prgma once // directiva de complare
+#ifndef _NUMECLASA_#
+#define -||-
+#incude <iostream>
+#include<sring>
+using namespace srd;
+clasa Pers{
+..
+};
+#endif
+pragma once: nu permite compliatorului sa 
+includa fisierul .h de mai multe ori/ varianta c++
+
+//in mian 
+#include <iostream>
+#include "Persoana.h"
+
+protected poate fi acesat doar de clasa si calsele copie adica clasele mostenite
+
+in fisierul .cpp se implmenteaza toate moetodele clasei
+Forma generala
+tip numeClasa:: nume meroda(parametri)
+int Persoana:: getvarsta(){rentun this->varsta;}
+
+Instantiere in main(){
+int a;
+Persoana p ("Pop", "Marian" 20); // alocare statica
+Persoana* pdin = new Persoana ("Pop", "Marian", 21); // dinamic
+cout<< p.getvarsa();
+cout << pdin->getvarsta();
+delete pdim;
+}
+
+Constructor:
+Persoana:: Persoana(String nume, string prenume, int varsta)
+{
+this->nume = nume;
+this->prenume = prenume;
+this->varsta = varsta;
+}
+
+Persoana:: Persoana(string nume = "", string prenume = "", int varsta = 0)
+:nume(nume), prenume(prenume), varsta(varsta)
+
+
+
+
+			Clase continuare 
+Construcotr: lista de initializare doar in .h
+.h
+Persoana(string n = "", string pn="", int varsta = 0);/doar in fiser .h trecem = .. (lista de initalizare)
+.cpp
+Persoana::Persoana(String n, string pn, int v):
+	nume(n), prenume(pn), varsta(v){}
+
+
+
+		constructor de copiere (Copy-construct)
+
+main 
+	Persoana pers("Pp", "Alin", 20);
+	Persoana p(pers); // creaza un obiect identic dar in alta zona de memeore 
+	Persoana p2 = pers;
+	(face copie a dersa lui pers)
+
+
+
+.h
+varianta generala   NumeClass(NumeClassa& other);
+		    Persoana(const Persoana &);
+.cpp
+Persoana:: Persoana (const Persoana& other)
+{
+...
+}
+
+Punem & doarece din main acelasi obiect sa se transmita

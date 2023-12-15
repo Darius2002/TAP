@@ -1,0 +1,153 @@
+!!!Pica la test Supraincarcarea operatorilor 
+
+Clasificare: programare structurala 	3 componente: secventa, ramificatie, bucle
+	     programare procedurala/imperativa
+	     pr. modulara: biblioteci, pachete
+	     poo:
+	     pr. generica: Object java, template C(ex. vector <int> v;   vector<T>)
+	     pr. functionala: la cluj(nu se folseste in it)
+	     pr. logica:  la cluj(nu se folseste in it)
+Procedura in Pascal: este fuctia void in C
+
+
+			Pardigma programarii orientate obiect
+
+Obiect: Propietati(campuri/ field/ atribute)
+	Metode/functii/methods
+
+	member: field + methods
+			functions
+1.incapsulat(ascuderea informatiei private campuri) in obiect
+2.mostenire(clasa parinte se mosteneste in clasa copil): Java extends
+3.polimorfism: 	mostenire
+				referinte la clasa parinte obiect parinte
+				refernta -||- obiect copli
+				
+Clasa: 	Tipul Absract de data(TAD)
+	struct: fiecare membru este public
+Obiectul instanta unei clase
+
+C++: C obiect orientat - .h antente de metoda, clase, campuri
+					   - .cpp implmentarile metodelor 
+
+!!! la sumativ/implamtare Programare generica C7, c8, c9 ,c10
+ 
+template <class T>
+class Stiva{
+T elemente[100];
+}; // ca si la struct clasa se declara intre acolde si la final se pune ;
+//T- tip general
+
+int main()
+{ Stiva <int> s;
+Striva <float> sf;
+
+Imbunatatiri c++:
+1.tip vool true/false
+
+2.
+alocare dinamica cu new si delete
+int n = 10;
+int* v= new int[n];
+delete[] v;
+
+alocare matice
+int** a= new int*[n];
+for (int i = 0; i<n; i++)
+	a[i] = new int[m];
+for (int i = 0; i < n; i++)
+	delate [] a[i];
+delete [] a;
+
+3.fluxuri de date/ date strem >> operatorul citire
+							  << operatorul afisare
+stram,ifstram: imput file
+			   ifstram: output file
+Meroda este operatorul >> de citire 
+			operatrul << de scriere
+
+4.namespace: using namespace std;
+std:: -> operator de rezolutie
+
+5.Exceptii:  try-catch
+class Eroare{
+.......
+};
+
+void functie(){
+if(conditie) trow Eroare();
+}
+try{
+	fuctie();
+}
+catch(Eroare e){
+}
+
+6.referinta & (in java toate variabile/obiectele sunt referinte)
+pointer*
+int x = 100;
+int* px = &x; // aresa varibilei x a nu se comfunda cu referinta
+
+int& refx = x; // semnul & se pune la declarare dupa tip;
+// refx este referiinta la x, aliass pt x
+obs: o variabila de tin referinta trebuie sa aiba valoare dupa declarare
+obs: referinta nu isi schimba valoare (adica obiectul referit)
+!! in cazul se schimba variabila refeita atunci si referinta se schimba si vice versa
+Referinta se foloseste pt. a fi transimisa in functie 
+
+void myswap(int x, int y)
+{in tmp = x;
+x= y;
+y = tmp;
+cout << x << y;
+}
+int main(){
+int a, b, 10;
+myswap(a,b);
+cout << a << b;
+}
+
+Pointeri
+void myswapCorectPointeri(int *adra, int* adrb)
+{
+int tmp = *adra;
+*adra = *adrb;
+*adrb = tmp;
+}
+int main()
+{
+myswapCorectPointeri(&a, &b);	
+}
+
+void myswapReferintaCorect(int& refa, int& refb)
+{
+int tmp = refa;
+refa = refb;
+refb = temp;
+}
+Obs: Daca o variabila se transimite in functie prin 
+rerefinta de fapt zona de memorie va avea 2 denumiri 
+in fuctie se va referi la ea prin refeninta /parametru
+
+string sir = "Tehnici avasate";
+sir.length
+sir.size
+sir.capacity
+unsingned mylength(const string& sir)
+{
+int i = 0;
+while(str[i] != "\o")...
+retunr i;
+
+7.Metode cu parametrii implicitii
+
+double arieDR(double lungime, double latime)
+{retunr lungime*latime;
+}
+int main(){
+cout << arieDR(10,20);
+cout << arieDR();
+cout << arieDR(30);
+}
+
+double arieDR(double lungime = 0; double lay = 0) // varioanta corecta 

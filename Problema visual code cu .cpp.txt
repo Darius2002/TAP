@@ -1,0 +1,33 @@
+in visual studio code cum pot compila si rula mai multe fisiere .cpp si sa nu o fac din terminal
+ChatGPT
+În Visual Studio Code, există extensii care vă pot ajuta să compilați și să rulați mai multe fișiere .cpp fără a fi nevoie să deschideți terminalul în mod explicit. O extensie populară pentru aceasta este "Code Runner". Iată pașii pentru instalare și utilizare:
+
+Instalare extensie Code Runner:
+
+Deschideți Visual Studio Code.
+Accesați meniul "Extensions" (Extensii) din bara laterală stângă (sau utilizați scurtătura de tastă Ctrl+Shift+X).
+Căutați "Code Runner".
+Instalați extensia oferită de Jun Han.
+Configurare Code Runner pentru a compila și rula mai multe fișiere:
+
+După instalare, mergeți în "Settings" (Setări) din Visual Studio Code (sau utilizați scurtătura de tastă Ctrl+,).
+
+Căutați "Code-runner: Executor Map" și faceți clic pe "Edit in settings.json".
+
+Adăugați o intrare pentru C++ care să utilizeze comanda de compilare și rulare.
+
+Un exemplu de configurație pentru compilare și rulare a mai multor fișiere .cpp arată astfel:
+
+json
+Copy code
+"code-runner.executorMap": {
+    "cpp": "cd $dir && g++ *.cpp -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+}
+Această configurație presupune că toate fișierele .cpp se află în același director, și se compilează într-un singur executabil, care este apoi rulat.
+
+Utilizare:
+
+Deschideți fișierele .cpp pe care doriți să le compilați și să le rulați.
+Faceți clic dreapta pe editor și alegeți opțiunea "Run Code" sau utilizați scurtătura de tastă Ctrl+Alt+N.
+Rezultatul compilării și al rulării va fi afișat în consola de ieșire.
+Acum, ar trebui să puteți compila și să rulați mai multe fișiere .cpp în Visual Studio Code folosind extensia Code Runner.
