@@ -10,13 +10,15 @@ class Client
 public:
 	Client(string, string, string, unsigned int);
 	~Client();
+	void SetMoneda(string, int);
+	void AdugaCont(unsigned int, int);
+	void RetragereCont(int, int);
+	void SetCont(unsigned int, int);
 
 private:
-	string numa, prenume, adresa;
+	string nume, prenume, adresa;
 	unsigned int nrConturi;
 	ContBancar* conturi;
 };
-
-
 #endif CLIENT_H
 

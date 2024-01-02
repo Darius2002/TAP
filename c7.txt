@@ -1,0 +1,139 @@
+							c7- Programare generica cu sabloane
+1.functii sablon
+tip sablon T
+
+trmplate <class T>
+tipret numefunc(param de tip T unul)
+{
+	variabile locale T
+}
+
+template<class T>
+void myswap(T& a, T& b){
+	T tmp = a;	
+	a = b;
+	b = tmp;
+}
+
+int x = 10, y = 20;
+myswap<int>(x,y);
+	T tip generic/template
+template<classT, class U>
+void metoda(T& a, U& nr){...}
+main.cpp
+metoda<folat, char>(nr1, nr2)
+
+template<clas T>
+void afisare(T* vec, unsigned l){...}
+
+in main
+int v[100]; -- citire
+afisare <int> (vec, n);
+
+Initializarea parametrului in cazul functiei template este imposibila. //nu stim de ce tip va fi
+
+T metoda (T p ="mere"){...} // GRESIT 
+
+Clase sablon : structuri de date, tablou , matrice, stiva, coada, LSI, LDI, ABC
+
+.h 
+template <T>
+class Stiva{
+	int MAX, TOP;
+	T* elemente;
+public: constr;
+	copy-constr;
+	operator = 
+	destr;
+	Stiva(int MAX = 5);
+	Stiva(const Stiva <T> &other);
+	Stiva <T> &operator = ( -|| ----);
+	~Stiva();
+	void push(T e);
+	T pop();
+};
+
+In cazul clasei template cpp nu trebuie 
+totul se implementeaza in fisierul .h dupa }; se trec implementarile
+
+template <class T>
+void Stiva<T>::push(T e){
+	elements[TOP] = e;
+	++TOP;
+}
+
+template <class T>
+Stiva<T>::Stiva (const Stiva<T>&)
+
+obs: In cazul in care clasa contine metode Friend, se indica folosirea unui alt nume TT pentru template ul din functia respectiva
+
+Clasa template specializata
+Mostenire cu clase template
+avantaj : se implementeaza o data cu T, tip generic, in main se apeleaza/ instantiaza cu tip concret 
+NumeCl <int> obiect
+NumeCl <Persoana> obiect2;
+
+Mostenirea claselor sablon
+template <class T>
+	class Copil: public Baze <T>{
+};
+
+template specificat: se presupune ca avem o implementare generala cu <T>
+
+stack cu vector T
+stack LSI pentru string exceptie pp string nu poate fi tip pt stack static
+
+
+template<>
+class Stiva <string>
+{
+	string* vec;
+	int l;
+};
+
+
+Cursul 8 - containere
+
+Container = Structura de data
+using namespace std;
+
+1. array
+2. vector
+3. list(LDI)
+4.deque(double ended queue)
+5.set(multime de elemente ordonat cu cheie unica)
+6.map(multime de perechi de elemente <key, value> key: cheie unica, ordonat dupa cheie)
+7.stack mostenit 
+8. queue mostenit dequeue
+
+stack<int>st;
+cout << st.empty(); //returneaza true ca e stiva goala, nu am pus nimic in ea
+                    // se face fals dupa ce punem ceva in ea
+
+stack<int> st, st.push(5);
+stack<int> s, s.push(5);
+
+cout << st == s;
+
+empty - conteiner gol
+clear - sterge toate elementele
+erase -
+list <int> l; l.push_back(100);
+l.erase(it);
+it - iterator
+begin() - pointer la primul element si end() - la final
+
+Afisare:
+list<int> L; L.push_back(10);...
+list <int>::iterator it;
+
+for (it = L.begin(); it != L.end(); ++it)
+	cout << *it;
+
+list <int>::iterator itsters = L.begin();
+++itsters, ++itsters, ++itsters; //daca vreau sa sterg al 3 lea element, maresc de 3 ori si apoi
+L.erase(itsters);
+
+
+
+

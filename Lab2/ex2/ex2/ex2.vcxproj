@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Banca.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ContBancar.cpp" />
     <ClCompile Include="ex2.cpp" />

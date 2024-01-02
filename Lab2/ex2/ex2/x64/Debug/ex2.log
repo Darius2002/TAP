@@ -1,0 +1,5 @@
+﻿  Client.cpp
+D:\scoala\Tehnici\Lab2\ex2\ex2\Client.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  ex2.cpp
+  Generating Code...
+  ex2.vcxproj -> D:\scoala\Tehnici\Lab2\ex2\x64\Debug\ex2.exe

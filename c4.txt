@@ -155,40 +155,126 @@ istream& operator >>(istrem& is, Fractie& f);
 
 
 
+!!!!!!!!!!!!
+
+
+
+Pt examen ! 8-9-10(curs) un ex si Primul ex cu clasa sa fie fara template cu multe operatii sau cu tamplate cu mai putine 
+al 3-lea ex din curs 10
+la ficare fisiere din cursul 11
+
+
+23 ian examen curs
+
+
+!!!!!!!!!!!!
 
 
 
 
+7. operator [] - operator de indexare 
+Doar in clase in care apare un atribut de tip tablou unidimensional
+Indesare obiectului => indexarea aelui atribut
+classs MyVector{
+private:
+	unsigned length;
+	int* vec;
+prublic:
+	MyVector(unsigned length = 10);
+	~MyVector();
+	MyVector(const MyVector& other);
+	MyVector& operator=(...);
+	int& operator[](intindex)const;
+};
+MyVector::MyVector(uncsigned length):lenght(lenght){
+	vec = new int[length];
+}
+
+MyVector::MyVector(const MyVector& other){
+	this->lenght = other.lenght;
+	this->vec = new int [this->lenght];
+	for (int i = 0; i < this->lenght; ++i)
+		this->vec[i] = other.vec[i];
+}
 
 
 
+Myvector& MyVector::MyVector operator= (const MyVector& other){
+	this->lenght = other.lenght;
+	this->vec = new int [this->lenght];
+	for (int i = 0; i < this->lenght; ++i)
+		this->vec[i] = other.vec[i];
+	return *this;
+}
+
+
+int& MyVector:: operator[](int index)const{
+	retunr this->vec[index];
+}
 
 
 
+class Matrice{
+	int* operator[](int indexlinie)const;
+};
+
+int* Matrice::operator[](int indexlinie)const{
+	this->a[indexlinie];
+}
 
 
+8.conversie tip simplu -> obiect
+		obiect -> tip simplu
 
+main.cpp
+Fractie f(3,4);
+double d = (double)f; //0.75
+Obiect->tip double
+class Fractie{
+	
+	public: 
+		double operaor double()const;
+};
 
+Double Fractie:: operatir daobule() const{
+	return (double)numarator/numitro;
+}
+//conversie inversa din int in fractie
+tip in oibect:constructor cu param.
+.h Fractoe(int numarator = 0);
+.cpp Fractie::Fractie(int numarator):numator(numarator), numitor(1){}
 
+9.!!!NU TREBUIE
 
+10.Operator functor: apel de fuctie
+ Operatorul inzestreaza obiectul cu propietatea de a fi apelat.Vom apela obiectul. Prin apelul obiectului se intelege apelul adestui operator
 
+class OrdonareDesc{
+	bool operator()(cont Student& s1, const Student& s2);
+};
 
+bool OrdianreDesc::operator(--||--)
+{
+	if(s1.getMedeie() > s2.getMedie() ) return true;
+	else
+		retunr false;
+}
 
+Strudent** vecstud;
+citre... n student din fiser
+ifstrem fin ("Text.txt");
+fin >> n;
+vecstud = new Strudent*[n];
+for(int i = 0; i < n; ++i){
+	string nu, prenu, seci;
+	float med; int varsta, anul;
+	cin >> nu >> ... >> anul >> med;
+	vecstud[i] = new Student[nu,...,med);
+} 
 
+#include <algorith>
+sort(vecstud, vecstud + n); // daca nu se specifca al treilea parametru
+//daca un vector de obiecte trebuie sortat dupa un criteriu el se implementeaza in clasa timpului de vector in operatorul <
+//daca se doreste ordonarea dupa un al doilea criteriu pt el se implementeaza o alta clasa cu o singura metoda puctor(apel de fuctie) operator()(param.)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+sort(vecstud, vecstud + n, ordonareDesc);

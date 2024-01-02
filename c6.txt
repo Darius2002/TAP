@@ -1,0 +1,63 @@
+15. Conversia de timp in cazul ploimorfismului 
+const-cast
+float* c= reinter pret_cast<float*>(a);
+
+static_cast: UPCASTIG automat, Douncastig statica
+dynamic_cast
+
+Statica ex:
+
+void metoda(Persoane* pers){
+Student* s;
+s = (stundent*) pers; //c
+s = static_cast<Student*>(pers);//c++
+}
+obiect din clasa de baza nu pote fi convertit in clasa copil
+main.cpp
+Student st(......);
+metode(&st);
+
+4.dynamic_cas cu typeid
+typeid astemanot cu instanof in java
+Persoana* p = new Student(...);
+cout << typeid(p).name()  "Persoana*"
+cout << typeid(*p).name() "Student"
+
+void afisare(Persoana p)
+{
+	if (p instantof Persoana)
+		p.afisare()
+	//Java
+}
+
+void afisare(Persoana* p){
+	if(typeid(*p).name == "Persoana")
+		cout << p;
+	else if ( typeid(*p).name == "Student")
+		Student*s = dynemic_cast<Student*>(p);
+
+}
+
+
+
+void afisare(Persoane* p)
+{
+if(Student* s = dynemic_cast<Student>(p))
+	cout << s;
+	s->getmedie();
+
+//daca oviectul p este defapt sudent atuci conversia merge fara gesala returneaza true
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
