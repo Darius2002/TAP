@@ -1,0 +1,282 @@
+Examen practic : marti 23 ianuarie -- ora 8 sau 12
+
+Data sumativ : 31 ianuarie - miercuri 12 - 14     
+
+La examenu practic putem folosi: c++ reference offline archive  
+
+							C08 Containere
+
+
+
+vector:  vector <TIP>: acces direct v[i]
+		       push_back
+		       push_front
+		       insert(it, val)
+Poate fi parcurs printr un interator
+
+container<TIP>::
+vector<float> v; v.push_back(3);
+vector<char>; w.push_back(10);
+
+vector<floats>::iterator itv;
+vector<char>::iterator itw;
+
+container<TIP>::iterator tip;
+
+for (it = cont.begin(); it != cont.end(); ++it)
+	cout << *it;
+
+for (it = v.begin(); itv != v.end(); ++itv)
+	cout << *itv;
+
+Clasa iteratorului trebuie sa corespunda cu tipul containerului + tipul template al cont. parcurs.
+
+vector -> iterator RandomAccesIterator
+	           permite it + n
+		           it - n (permite sa sarim de la o pozitie la alta prin acces direct)
+
+it = v.begin(); v.begin() + 4
+
+it <, <=, >, >=, ==, !=;       itv < v.end();
+
+
+deque: push_back
+       push_front
+       pop_back
+       pop_front
+       inserT(it , val) nu se foloseste des
+Daca se foloseste des insertul se trece la varianta vector
+it -> RandomAccess it + n
+		   it - n
+		   it <, <=, >=, >, !=, ==
+
+		
+	deque
+	|
+	|
+      -- -----
+     |        |
+     stack	dequeue
+     push       enque
+     pop        deque
+     top      
+
+list : LDI 
+	|
+	> push_front
+	  push_back
+	  pop_front
+	  pop_back
+	  sort, merge
+	  insert
+
+list<float> L; L.push_back(10.5);
+	       L.push_front(10.3);
+	       L.push_back(11.7);
+	       10.3   10.5    11.7
+
+
+float elgasit = 11.7;s
+float elemInserat = 100.75;
+
+list<float> itlista;
+itlista = find(L.begin(), L.end(), elgasit);
+
+if(itlista == L.end())
+	cout << "element gasit";
+else
+{
+	L.insert(itLista, elInserat);
+{
+
+putem accesa: itlista -> pret = 12
+	      itlist -> um = 'g';  list<Ciocolata>
+
+itLista = L.begin();
+cin >> poz;
+
+for (int i = 0; i < poz; ++i)
+	++itlista; //se muta pe pozitia poz
+
+it + n // it - n ---- nu merge la list, set, map
+		      merge doar ++iterator, --it;
+
+merge doar la vector, stiva si coada.
+
+list : are iterator bidirectional si permite parcurgerea pe rand, nu putem sari
+it == altit
+it != altit
+nu merge it <, <=, >, >=
+
+set: multime: elementele sunt unice
+	      la afisare se afiseaza in ordinea crescatoare / descrescatoare
+     
+set<char> mul;
+mul.insert(10);
+mul.insert(5);
+mul.insert(15);
+mul.insert(3); // se formeaza unu arbore balansat in inaltime
+
+cerinta ordine: set
+
+ordine inversa: for (its = rbegin(); its!= rend(); --its)
+			cout << *its;
+rbegin - reverse begin (e sfarsit)
+rend - reverse end (e inceput)
+
+mul.insert(10);
+
+mul.insert(10); -> set<int>::iterator itins;
+		   pair<set<int>::iterator, bool > ret; // in variabila ret vom avea 2 valori, un iterator si o valoare true sau false
+                            -----first-----second---
+
+if(ret.second == true) // se insereaza 10
+	ret = mul.insert(10);
+cout << *(ret.first);
+
+if (ret.second == false)
+	cout << *(ret.first);
+		-- revine cu valoarea de 10
+
+cout << (ret.first) -> medie
+		       varsta
+
+set<int>::iterator gasit;
+
+gasit = mul.find(10);
+
+mutltiset -> permite duplicate
+putem primi - implementarea unui set simplu de stringuri, set de studenti
+Sa se creeze vector lista set sau map- seamana cu ex 3/4 din lab 8
+La examen sa citim valoarea de 2 iar mai apoi pe cate o linie sa avem 10 si nume, pe o linie toate datele ptr o instanta,
+iar pe alta linie toate datele ptr o alta instanta
+
+
+map. Mapare
+ |
+ |
+ - - -> contine perechi pair<TIP1,TIP2>
+                /   \
+               /     \
+             cheie  valoare
+	     first  second
+
+(x,y) Punct2D class Punct2D{
+		private:
+		int x,y;
+	   };
+
+#include <algorithm>
+#include <map>
+#include <set>
+
+int main(){
+	pair<int, double> punct2D(10, 7.5);
+	cout << "coordonata x" << punct2D.first;
+
+
+make_pair
+pair<int, char> p = make_pair<int, char>(10,'@');
+
+map : este un fel de set, dar de perechi
+3D:
+
+pair<int,<pair<int, int>> p3D; //(10, (20, 30))
+cout << p3D.first << p3D.second.first << p3D.second.second;
+	10               20                 30
+
+map : cheia nu se repeta, valoarea poate sa se repete
+#include <map>
+int main(){
+map<string, unsigned short> lunileAnului;
+pair <map<string, unsigned short>::iterator, bool> ret;
+ret = lunileAnului.insert(pair<string, unsigned char>("ian", 31));
+
+if(ret.second == true) cout << "insert a inserat ian, 31";
+ret = lunileAnului.insert(pair<string, unsigned char>("ian", 31));
+if (!ret.second) cout << "Deja exista cheia adica ianuarie in map";
+		 cout << ret.first -> first; // se pune -> ca ret ii pointer
+			punem primul first ca e pointer la iterator, iar al doilea first e cheia
+}
+}
+
+ret = map<string,unsigned short>::iterator  bool - second
+     -------------------------------------
+		first
+
+lunileAnului["martie"] = 31;
+map <string, unsigned short> itgasit;
+
+itgasit = lunileAnului.find("martie");
+if (itgasit == lunileAnului.end()) cout << "nu exista";
+else
+itgasit -> second = 300;
+
+ce exercitii putem primi: 
+Ex: fie un fisier text : statistica cuvinte
+	abc def abc xyz 
+	def xyz def
+	hgi klm xyz abc 
+a) sa se creeze statistica de cuvinte per total
+1.statistica pe intreg fisierul abc, 3
+				def, 3
+				hgi, 1
+				klm, 1
+				xyz, 3
+
+dam find la acel cuvant, daca exista in mapa, secondul se face ++, daca nu, secondul se pune pe 1,
+
+map<string, unsigned short>::iterator itm;
+
+for (itm = lunileAnului.begin(); itm != end(); ++itm)
+	cout << itm -> first << " " << itm -> second;
+
+b) sa se faca statistica de cuvinte per linie
+<1, abc, 2
+    def, 1
+    xyz, 1>
+
+<2, <def, 2>
+    <xyz, 1>>
+
+<3, abc, 1
+    hgi, 1
+    klm, 1
+    xyz, 1>
+
+
+set<pair<int, map <string, int>>>
+
+map<int,map<string, int>> // statistica linii
+
+citire linie
+spargere in cuvinte
+mapa mica map <string, int> mapaMica;
+
+
+ ret = mapaMica.insert(pair<string, int> (cuv, 1));
+	  if (ret.second == true);
+	  else
+		(ret.first -> second)++;
+	  	
+mapaMare.insert(pair<int, map<string, int>>(count, mapaMica));
+
+alt exemplu:
+fisier dictionar, romana -> engleza
+caine : dog   dog : caine
+catel: dog    dog : catel
+	      dog : catelus
+	      cat : pisica
+              cat : pisicuta
+
+-> cheia in limba eng si valoarea in romana 1. dog, (caine, catel, catelus)
+				            2. cat  (pisica, pisicuta)
+					    map<string,set<string>>
+					daca sinonimele se repeta - list
+					daca nu se repeta si trebuie ordonate crescator - set
+
+
+
+
+
+		

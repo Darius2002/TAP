@@ -1,0 +1,78 @@
+						  C09 - Algorithms
+
+
+
+la sumativ: explicati la alegere 3 containere, exemple si sa explicam functionalitatea lor (set, map, vector)
+Clasificare algoritmi: algoritmi care nu modifica continutul unui container
+		       algoritmi care modifica continutul unui container
+		       algoritmi de stergere
+                       algoritmi de mutare
+                       algoritmi de sortare
+                       algoritmi de minim, maxim
+                       algoritmi de multimi, set, (reuniune, intersectie, diferenta)
+                       numerici
+-------------------------------------------------
+                       expresii lambda
+
+-------|---------------|----------
+|      |               |         | container
+-------|---------------|---------
+
+	{subsecventa}
+       prim            ultim
+        ------------------
+        lucreaza pe subsecventa
+	delimitata de iterator
+
+1. for_each, count, equal, find, find_if, search
+2. copy, copy_if, copy_backwerd, replace, replace_if, replace_copy_if
+3. remove, remove_if, remove_copy_if
+4. swap, transform, generate, fill, unique, reverse, reverse_copy, reverse_copy_if, next_permutation, random_shuffle
+5. sort, binary_search
+6. min, max
+7. set_intersection, set_union, set_difference
+8. produs scalar, produs vectorial
+	
+Iteratori: clasificare: InputIterator ( permite doar citirea)
+			OutputIterator (permite doar scrierea)
+			ForwardIterator (citire + scriere)
+			BidirectionalIterator (citire, scriere, ++, --) --- set, map, list
+			RandomAccessIterator (it + n, it - n) ---- vector, queue, stack
+
+
+1. for_each:  vector[4]; vector<int>
+   for_each(v.begin(); v.end(); triplu);
+
+int triplu(int element) {cout << 3 * element;}
+-----------------------------------
+vector<int> it1 = v.begin() + 1;
+vector<int> it2 = v.end() - 1;
+for_each(it1, it2, triplu); // nu merge de la inceput pana la sfarsit, e un interval
+
+template<class InputIterator , class Function >
+Function my_for_each(InputIterator prim, InputIterator ultim, Function metoda)
+{
+	InputIterator it;
+	for (it = prim; it != ultim, ++it)
+		metoda(*it);
+return met;
+}
+
+2. copy(v.begin(), v.end(), w.begin() + 3); - in vectorul w de la pozitia 3 se pun toate elementele din vectorul v pana cand se termina
+aceasta metoda merge daca w are prealocat un numar suficient de elemente
+
+   
+4. replace_copy_if(v.begin(), v.end(), w.begin() + 3, conditie, 1000) // ia toate elementele din simplu v, le copiaza in w incepand de la pozitia 3, dar nu pe toate, le schimba doar daca numarul din w e par. ( schimba cu 1000)
+daca vectorul v are elem {2, 3, 4, 5, 6}
+in vectorul w se vor pune {1000, 3, 1000, 5, 1000}
+
+
+bool conditie(int element){ return element%2 == 0;}
+
+
+
+		
+
+
+
+
