@@ -1,0 +1,22 @@
+﻿  Fractie.cpp
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.h(30,14): error C2535: 'Fractie &Fractie::operator /=(const Fractie &)': member function already defined or declared
+  (compiling source file 'Fractie.cpp')
+  D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.h(29,14):
+  see declaration of 'Fractie::operator /='
+  
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.h(35,12): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Fractie.cpp')
+  
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.h(35,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Fractie.cpp')
+  
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.h(35,40): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Fractie.cpp')
+  
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.cpp(268,19): error C2039: '<<': is not a member of 'Fractie'
+  D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.h(5,7):
+  see declaration of 'Fractie'
+  
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.cpp(268,19): error C2270: '<<': modifiers not allowed on nonmember functions
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.cpp(269,11): error C2065: 'a': undeclared identifier
+D:\scoala\Tehnici\Lab4\ex1\ex1\Fractie.cpp(269,23): error C2065: 'b': undeclared identifier
