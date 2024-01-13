@@ -1,0 +1,8 @@
+Ana: 1
+Gorjiana: 3
+Ionut: 2
+Mainr: 1
+Marin: 1
+mere: 2
+pere: 1
+vrea: 1
